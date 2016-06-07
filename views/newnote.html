@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Virtual Stand-up
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li class="active">
+						<a href="/newnote">New Note</a>
+					</li>
+					<li>
+						<a href="/discuss">Discuss</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="text-center">
+			<h1>
+				New Virtual Stand-up Meeting Note
+			</h1>
+			<p class="lead">
+				Use this form to enter your daily meeting notes
+			</p>
+		</div>
+
+		{% if message && message.length > 0 %}
+			<div class="alert alert-danger alert-error">
+				{{message}}
+			</div>
+		{% endif %}
+
+		<form action="newnote" class="form-horizontal" method="post">
+			<fieldset>
+				<legend>
+					Enter a Meeting Note
+				</legend>
+
+				<div class="form-group">
+					<label for="memberName" class="col-md-4 control-label">
+						Member Name
+					</label>
+					<div class="col-md-4">
+						<select name="memberName" id="memberName" class="form-control">
+							<option value="none">
+								(Select Name)
+							</option>
+							<option value="Mark">	Mark
+							</option>
+							<option value="David">	David
+							</option>
+							<option value="John">	John
+							</option>
+							<option value="Mary">	Mary
+							</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="project" class="col-md-4 control-label">
+						Current Project
+					</label>
+					<div class="col-md-4">
+						<select name="project" id="project" class="form-control">
+							<option value="None">(Select Project)</option>
+							<option value="matrix">Matrix API Development</option>
+							<option value="trinity">Trinity UI Development</option>
+							<option value="morpheus">Morpheus Data Integration</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="workYesterday" class="col-md-4 control-label">
+						What did you do yesterday?
+					</label>
+					<div class="col-md-6">
+						<textarea name="workYesterday" id="workYesterday" cols="30" rows="10" class="form-control">Yesterday work</textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="workToday" class="col-md-4 control-label">
+						What will you do today?
+					</label>
+					<div class="col-md-6">
+						<textarea name="workToday" id="workToday" cols="30" rows="10" class="form-control">Today work</textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="impediment" class="col-md-4 control-label">
+						Any Impediment
+					</label>
+					<div class="col-md-6">
+						<textarea name="impediment" id="impediment" cols="30" rows="10" class="form-control">None</textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="btnSaveNote" class="col-md-4 control-label">Save Note</label>		
+					<div class="col-md-4">
+						<button id="btnSaveNote" name="btnSaveNote" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
